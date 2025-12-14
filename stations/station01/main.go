@@ -3,9 +3,20 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Start FizzBuzz....")
 
-	FizzBuzz() // この関数を実装する
+	{
+		count := 100
+		for i := 1; i <= count; i++ {
+			if i%15 == 0 {
+				fmt.Println("FizzBuzz")
+			} else if i%3 == 0  {
+				fmt.Println("Fizz")
+			} else if i%5 == 0 {
+				fmt.Println("Buzz")
+			} else {
+				fmt.Println(i)
+			}
+		}
+	} 
 
-	fmt.Println("FizzBuzz completed!")
 }

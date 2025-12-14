@@ -2,9 +2,10 @@ package main
 
 import (
 	"bytes"
-	"github.com/stretchr/testify/require"
 	"os"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestStation01(t *testing.T) {
@@ -115,7 +116,7 @@ Buzz
 		r, w, _ := os.Pipe()
 		os.Stdout = w
 
-		FizzBuzz()
+		main()
 
 		err := w.Close()
 		if err != nil {
