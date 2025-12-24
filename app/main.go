@@ -1,7 +1,10 @@
+/*
+Copyright © 2025 NAME HERE <EMAIL ADDRESS>
+*/
 package main
 
-import "fmt"
+import "dog-cli/app/cmd"
 
 func main() {
-	fmt.Println("Hello world!")
+	cmd.Execute()
 }
