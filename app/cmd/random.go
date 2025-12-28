@@ -36,6 +36,19 @@ func FetchRandomDogImageURL() (string, error) {
 	return result.Message, nil
 }
 
+var imageCount int
+
+// IntVarP = Var: 変数に値を格納
+// P: 短縮形のフラグを指定可能にする
+func init(){
+	randomCmd.Flags().IntVarP(
+		&imageCount,
+		"images",
+		"i",
+		1,
+		"取得するURLの件数",
+	)
+}
 // randomCmd represents the random command
 var randomCmd = &cobra.Command{
 	Use:   "random",
@@ -44,11 +57,13 @@ var randomCmd = &cobra.Command{
 	
 	// 犬の画像 URL をランダムに取得して出力し、URLを返す処理
 	RunE: func(cmd *cobra.Command, args []string) error {
-		url, err := FetchRandomDogImageURL()
-		if err != nil {
-			return err
+		for i := 0; i < imageCount; i ++ {
+			url, err := FetchRandomDogImageURL()
+			if err != nil {
+				return err
+			}
+			fmt.Println(url)
 		}
-		fmt.Println(url)
 		return nil
 	},
 }
